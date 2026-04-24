@@ -1,24 +1,12 @@
 #!/usr/bin/env python3
-from calculator_adapter import run
+from calculator_adaptor import run
 
+# ADD AT LEAST TWO TESTS HERE!
 
-### ADD AT LEAST TWO TESTS HERE!
+assert run("2 + 3").output == "5"
 
-def test_addition():
-    assert run(["2", "+", "3"]) == "The result of your operation is 5."
+assert run("10 - 4").output == "6"
 
-def test_subtraction():
-    assert run(["10", "-", "4"]) == "The result of your operation is 6."
+print("All tests passed")
 
-
-print("All tests passed!")#!/usr/bin/env python3
-from calculator_adapter import run
-
-
-### ADD AT LEAST TWO TESTS HERE!
-
-
-###
-
-print("All tests passed!")
 
