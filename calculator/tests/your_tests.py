@@ -1,12 +1,29 @@
 #!/usr/bin/env python3
-from calculator_adaptor import run
+import subprocess
 
-# ADD AT LEAST TWO TESTS HERE!
 
-assert run("2 + 3").output == "5"
+def run_calculator(equation):
+    result = subprocess.run(
+        ["../calculator", "-q"] + equation.split(),
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+    return result
 
-assert run("10 - 4").output == "6"
 
-print("All tests passed")
+### ADD AT LEAST TWO TESTS HERE!
 
+# Test addition
+result = run_calculator("2 + 3")
+assert result.returncode == 0
+assert "5" in result.stdout
+
+# Test subtraction
+result = run_calculator("10 - 4")
+assert result.returncode == 0
+assert "6" in result.stdout
+
+
+print("All tests passed!")
 
